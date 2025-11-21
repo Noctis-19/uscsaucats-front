@@ -5,7 +5,7 @@ export default function Actualite({ actu }: { actu: Actualite }) {
   return (
     <a
       href={`/actualites/${actu.documentId}`}
-      className="relative border border-primary rounded-lg shadow hover:shadow-lg hover:border-secondary transition overflow-hidden"
+      className="relative border-2 border-primary rounded-lg shadow hover:shadow-lg hover:border-secondary transition overflow-hidden"
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL + actu.image?.url})`,
         backgroundSize: "cover",

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="sticky bg-white z-50">
+    <header className="sticky bg-white top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center h-25">
         {/* Logo */}
         <Link href="/">
@@ -12,6 +12,15 @@ export default function Header() {
 
         {/* Liens centrés */}
         <nav className="flex-1 flex justify-center space-x-8">
+          <Link href="/club" className="font-semibold text-primary hover:text-secondary">
+            Club
+          </Link>
+          <Link href="/entrainements" className="font-semibold text-primary hover:text-secondary">
+            Entraînements
+          </Link>
+          <Link href="/evenements" className="font-semibold text-primary hover:text-secondary">
+            Évènements
+          </Link>
           <Link href="/actualites" className="font-semibold text-primary hover:text-secondary">
             Actualités
           </Link>
