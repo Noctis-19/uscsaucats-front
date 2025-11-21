@@ -21,3 +21,7 @@ export async function getActualiteById(docId: string) {
 export async function getEvenements() {
   return (await fetchAPI('/api/evenements?populate=image')).data;
 }
+
+export async function getGalerieAccueil() {
+  return (await fetchAPI('/api/galerie-accueil?populate=images')).data.images;
+}

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scrollbar-gutter: stable;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +14,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --color-primary: oklch(0.3995 0.0733 169.47);
+  --color-secondary: oklch(0.7706 0.1667 123.38);
 }
 
 @media (prefers-color-scheme: light) {

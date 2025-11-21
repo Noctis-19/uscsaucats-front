@@ -5,10 +5,12 @@ export type Actualite = {
   documentId: string;
   title: string;
   content: BlocksContent;
-  image: Image;
+  image: CustomImage;
+  date: Date;
 };
 
-export type Image = {
+export type CustomImage = {
+  id: number;
   url: string;
   alternativeText: string;
-}
+};

@@ -7,7 +7,7 @@ export default async function ActualitePage({ params }: { params: { docId: strin
   const actu = await getActualiteById(docId);
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 py-6">
       <h1 className="text-3xl font-bold mb-4">{actu.title}</h1>
 
       <BlocksRenderer content={actu.content} />
