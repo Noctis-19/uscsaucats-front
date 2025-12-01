@@ -1,5 +1,4 @@
 import { type Actualite } from '@/lib/types';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 export default function Actualite({ actu }: { actu: Actualite }) {
   return (
@@ -26,12 +25,10 @@ export default function Actualite({ actu }: { actu: Actualite }) {
 
       {/* Bande floutée */}
       <div className="absolute bottom-0 left-0 right-0 h-22 bg-black/40 backdrop-blur-md overflow-y-auto wrap-break-word">
-        {/* Contenu */}
-        <div className="p-4 text-white">
-          <h3 className="text-xl font-semibold">{actu.title}</h3>
-          <div className="mt-2 text-sm">
-            <BlocksRenderer content={actu.content} />
-          </div>
+        {/* Description */}
+        <div className="py-2 px-4 text-white">
+          <h3 className="text-xl font-semibold">{actu.titre}</h3>
+          <div className="text-sm">{actu.description}</div>
         </div>
       </div>
     </a>

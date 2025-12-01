@@ -12,7 +12,7 @@ export default async function Home() {
       <section className="w-full flex flex-col md:flex-row items-center justify-between mt-5 mb-10">
         <div className="md:w-3/5 w-full flex  flex-col">
           <h1 className="text-7xl font-bold text-primary text-center">
-            Club d'athlétisme USCSaucats
+            Club d'athlétisme USCS Saucats
           </h1>
           <p className="w-4/5 mt-4 self-center text-lg text-center font-semibold">
             Bienvenue sur le site de l'Union Sportive et Culturelle Saucataise section Athlétisme !!!

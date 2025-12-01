@@ -8,9 +8,9 @@ export default async function ActualitePage({ params }: { params: { docId: strin
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-4">{actu.title}</h1>
+      <h1 className="text-3xl font-bold mb-4">{actu.titre}</h1>
 
-      <BlocksRenderer content={actu.content} />
+      <BlocksRenderer content={actu.contenu} />
 
       {actu.image?.url && (
         <img

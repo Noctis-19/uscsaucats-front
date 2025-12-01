@@ -11,7 +11,7 @@ export async function fetchAPI(path: string) {
 
 // Specific
 export async function getActualites() {
-  return (await fetchAPI('/api/actualites?populate=image')).data;
+  return (await fetchAPI('/api/actualites?sort=date:desc&populate=image')).data;
 }
 
 export async function getActualiteById(docId: string) {
@@ -24,4 +24,8 @@ export async function getEvenements() {
 
 export async function getGalerieAccueil() {
   return (await fetchAPI('/api/galerie-accueil?populate=images')).data.images;
+}
+
+export async function getLignesEntrainements() {
+  return (await fetchAPI('/api/entrainements-lignes?sort=ordre')).data;
 }
