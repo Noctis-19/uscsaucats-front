@@ -12,6 +12,9 @@ export default function Header() {
 
         {/* Liens centrés */}
         <nav className="flex-1 flex justify-center space-x-8">
+          <Link href="/actualites" className="font-semibold text-primary hover:text-secondary">
+            Actualités
+          </Link>
           <Link href="/club" className="font-semibold text-primary hover:text-secondary">
             Club
           </Link>
@@ -21,11 +24,14 @@ export default function Header() {
           <Link href="/evenements" className="font-semibold text-primary hover:text-secondary">
             Évènements
           </Link>
-          <Link href="/actualites" className="font-semibold text-primary hover:text-secondary">
-            Actualités
+          <Link href="/competitions" className="font-semibold text-primary hover:text-secondary">
+            Compétitions
           </Link>
-          <Link href="/contact" className="font-semibold text-primary hover:text-secondary">
-            Contact
+          <Link href="/partenaires" className="font-semibold text-primary hover:text-secondary">
+            Partenaires
+          </Link>
+          <Link href="/contacts" className="font-semibold text-primary hover:text-secondary">
+            Contacts
           </Link>
         </nav>
 

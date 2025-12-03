@@ -10,6 +10,18 @@ export async function fetchAPI(path: string) {
 }
 
 // Specific
+export async function getAccueil() {
+   return (await fetchAPI('/api/accueil?populate=carrousel')).data;
+}
+
+export async function getLienInscription() {
+   return (await fetchAPI('/api/lien-inscription')).data;
+}
+
+export async function getFooter() {
+   return (await fetchAPI('/api/footer')).data;
+}
+
 export async function getActualites() {
   return (await fetchAPI('/api/actualites?sort=date:desc&populate=image')).data;
 }
