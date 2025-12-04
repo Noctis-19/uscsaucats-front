@@ -30,6 +30,10 @@ export async function getActualiteById(docId: string) {
   return (await fetchAPI(`/api/actualites/${docId}?populate=image`)).data;
 }
 
+export async function getInfosClub() {
+  return (await fetchAPI(`/api/infos-club?populate=image&sort=ordre`)).data;
+}
+
 export async function getEvenements() {
   return (await fetchAPI('/api/evenements?populate=image')).data;
 }
@@ -40,4 +44,8 @@ export async function getGalerieAccueil() {
 
 export async function getLignesEntrainements() {
   return (await fetchAPI('/api/entrainements-lignes?sort=ordre')).data;
+}
+
+export async function getPartenaires() {
+  return (await fetchAPI('/api/partenaires?sort=ordre&populate=image')).data;
 }

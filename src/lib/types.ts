@@ -37,3 +37,10 @@ export type TableauProps = {
   lignes: Ligne[];
   colonnes: Colonne[];
 };
+
+export type Partenaire = {
+  id: number;
+  nom: string;
+  image: CustomImage;
+  description: string;
+}
