@@ -9,7 +9,7 @@ export default async function PartenairesPage() {
   const partenaires = await getPartenaires();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="max-w-7xl mx-auto px-4 py-6 text-justify cursor-default">
       <h2 className="text-3xl text-primary font-bold mb-4">Nos partenaires</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

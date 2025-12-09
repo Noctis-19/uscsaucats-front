@@ -6,7 +6,7 @@ export default async function ClubPage() {
   const infosClub = await getInfosClub();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="max-w-7xl mx-auto px-4 py-6 text-justify">
       {infosClub.map((info: any) => (
         <div key={info.id} className="flex flex-row items-center justify-between mb-4">
           <div className="w-2/3 pr-4">

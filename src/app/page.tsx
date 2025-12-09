@@ -10,7 +10,7 @@ export default async function Home() {
   const lienInscription = await getLienInscription();
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto px-4 text-justify cursor-default">
       <section className="w-full flex flex-col md:flex-row items-center justify-between mt-4 mb-8">
         <div className="md:w-3/5 w-full flex  flex-col">
           <h1 className="text-7xl font-bold text-primary text-center">

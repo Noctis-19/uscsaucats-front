@@ -38,6 +38,16 @@ export type TableauProps = {
   colonnes: Colonne[];
 };
 
+export type Evenement = {
+  id: number;
+  documentId: string;
+  annee: number;
+  date: Date;
+  nom: string;
+  description: string;
+  images: CustomImage[];
+}
+
 export type Partenaire = {
   id: number;
   nom: string;

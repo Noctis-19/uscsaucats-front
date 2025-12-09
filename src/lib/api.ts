@@ -14,6 +14,10 @@ export async function getAccueil() {
    return (await fetchAPI('/api/accueil?populate=carrousel')).data;
 }
 
+// export async function getGalerieAccueil() {
+//   return (await fetchAPI('/api/galerie-accueil?populate=images')).data.images;
+// }
+
 export async function getLienInscription() {
    return (await fetchAPI('/api/lien-inscription')).data;
 }
@@ -34,16 +38,16 @@ export async function getInfosClub() {
   return (await fetchAPI(`/api/infos-club?populate=image&sort=ordre`)).data;
 }
 
-export async function getEvenements() {
-  return (await fetchAPI('/api/evenements?populate=image')).data;
-}
-
-export async function getGalerieAccueil() {
-  return (await fetchAPI('/api/galerie-accueil?populate=images')).data.images;
-}
-
 export async function getLignesEntrainements() {
   return (await fetchAPI('/api/entrainements-lignes?sort=ordre')).data;
+}
+
+export async function getEvenements() {
+  return (await fetchAPI('/api/evenements?sort=annee:desc&populate=images')).data;
+}
+
+export async function getEvenementById(docId: string) {
+  return (await fetchAPI(`/api/evenements/${docId}?populate=images`)).data;
 }
 
 export async function getPartenaires() {
