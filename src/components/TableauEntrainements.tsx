@@ -1,6 +1,4 @@
-import { getLignesEntrainements } from '@/lib/api';
-
-export default async function TableauEntrainements() {
+export default async function TableauEntrainements({ tableau }: { tableau: any }) {
   const systemFields = [
     "id",
     "documentId",
@@ -9,8 +7,6 @@ export default async function TableauEntrainements() {
     "publishedAt",
     "ordre",
   ];
-
-  const tableau = await getLignesEntrainements();
 
   // On enlève les champs systèmes pour pouvoir tous les récupérer sans savoir combien il y en a
   const lignes = tableau.map((item: any) =>

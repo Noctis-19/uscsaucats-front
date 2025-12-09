@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getEvenements } from "@/lib/api";
 import DropDownEvents from "@/components/DropDownEvents";
+import { Evenement } from '@/lib/types';
 
-export default async function Header() {
-  const evenements = await getEvenements();
-
+export default async function Header({ evenements }: { evenements: Evenement[] }) {
   return (
     <header className="sticky bg-white top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center h-25">
@@ -37,7 +35,6 @@ export default async function Header() {
           </Link>
         </nav>
 
-        {/* Vide à droite pour équilibrer */}
         <div className="w-20"></div>
       </div>
     </header>

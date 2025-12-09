@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Footer} from "@/components/Footer";
+import { getEvenements } from "@/lib/api";
+import { getFooter } from '@/lib/api';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +21,14 @@ export const metadata: Metadata = {
   description: "Club d'athlétisme de Saucats",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const evenements = await getEvenements();
+  const footer = await getFooter();
+
   return (
     <html lang="en">
       <body
@@ -31,10 +36,10 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <main className="grow">
-            <Header />
+            <Header evenements={evenements} />
             {children}
           </main>
-          <Footer />
+          <Footer footer={footer} />
         </div>
       </body>
     </html>

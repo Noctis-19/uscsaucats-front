@@ -1,5 +1,13 @@
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 
+export type Footer = {
+  id: number;
+  instagram: string;
+  facebook: string;
+  email: string;
+  adresse: string;
+}
+
 export type Actualite = {
   id: number;
   documentId: string;
@@ -14,28 +22,6 @@ export type CustomImage = {
   id: number;
   url: string;
   alternativeText: string;
-};
-
-export type Colonne = {
-  id: number;
-  label: string;
-};
-
-export type Case = {
-  id: number;
-  contenu: string;
-  colonne: Colonne;
-};
-
-export type Ligne = { 
-  id: number;
-  label: string;
-  cases: Case[];
-};
-
-export type TableauProps = {
-  lignes: Ligne[];
-  colonnes: Colonne[];
 };
 
 export type Evenement = {

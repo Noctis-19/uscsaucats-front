@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getFooter } from '@/lib/api';
+import { type Footer} from "@/lib/types";
 
-export async function Footer() {
-  const footer = await getFooter();
-
+export async function Footer({ footer }: { footer: Footer }) {
   return (
     <footer className="bg-primary text-white py-6 border-t">
       <div className="max-w-7xl mx-auto px-4 flex flex-row items-center justify-between">
