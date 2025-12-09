@@ -37,15 +37,15 @@ export default async function Home() {
 
       {/* Présentation */}
       <section className="mb-8">
-        <h2 className="text-3xl text-primary font-bold mb-4">Présentation</h2>
-        <div className="text-lg">
+        <h3 className="text-3xl text-primary font-bold mb-4">Présentation</h3>
+        <div className="blockrenderer text-lg">
           <BlocksRenderer content={accueil.presentation} />
         </div>
       </section>
 
       {/* Actualités */}
       <section className="mb-8">
-        <h2 className="text-3xl text-primary font-bold mb-4">Actualités</h2>
+        <h3 className="text-3xl text-primary font-bold mb-4">Actualités</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {actualites.map((actu: Actualite) => (
             <ActualiteComponent actu={actu} key={actu.id} />

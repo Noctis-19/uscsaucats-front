@@ -1,24 +1,31 @@
 import { BlocksRenderer} from '@strapi/blocks-react-renderer';
-import { getActualiteById } from '@/lib/api';
+import CarouselComponent from "@/components/Carousel";
+import { getCompetitionById } from '@/lib/api';
+import MapComponent from '@/components/Map';
 
-export default async function ActualitePage({ params }: { params: { docId: string } }) {
+export default async function CompetitionPage({ params }: { params: { docId: string } }) {
   const { docId } = await params;
-
-  const actu = await getActualiteById(docId);
+  const competition = await getCompetitionById(docId);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-4">{actu.titre}</h1>
+    <div className="max-w-7xl mx-auto px-4 py-6 text-lg text-justify cursor-default">
+      <h2 className="text-4xl text-primary text-center font-bold mb-6">{competition.nom} - {competition.annee}</h2>
 
-      <BlocksRenderer content={actu.contenu} />
-
-      {actu.image?.url && (
-        <img
-          src={process.env.NEXT_PUBLIC_API_URL + actu.image.url}
-          alt={actu.image.alternativeText}
-          className="mt-4"
-        />
+      {competition?.map && (
+        <div className="mb-6">
+          <MapComponent url={competition.map} />
+        </div>
       )}
+
+      <div className="blockrenderer">
+        <BlocksRenderer content={competition.description} />
+      </div>
+
+      {competition?.images && (
+        <div className="mx-auto max-w-3/5 mt-8 border overflow-hidden rounded-2xl">
+          <CarouselComponent images={competition.images} />
+        </div>
+      )}      
     </div>
   );
 }

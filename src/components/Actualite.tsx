@@ -27,7 +27,7 @@ export default function Actualite({ actu }: { actu: Actualite }) {
       <div className="absolute bottom-0 left-0 right-0 h-22 bg-black/40 backdrop-blur-md overflow-y-auto wrap-break-word">
         {/* Description */}
         <div className="py-2 px-4 text-white">
-          <h3 className="text-xl font-semibold">{actu.titre}</h3>
+          <h4 className="text-xl font-semibold">{actu.titre}</h4>
           <div className="text-sm">{actu.description}</div>
         </div>
       </div>

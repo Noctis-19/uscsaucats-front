@@ -6,7 +6,7 @@ export default function Partenaire({ partenaire }: { partenaire: Partenaire }) {
       
       {/* Nom */}
       <div className="bg-primary text-white py-2 px-4">
-        <h3 className="text-xl font-semibold text-center">{partenaire.nom}</h3>
+        <h4 className="text-xl font-semibold text-center">{partenaire.nom}</h4>
       </div>
 
       {/* Image */}

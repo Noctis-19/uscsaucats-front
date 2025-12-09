@@ -4,7 +4,7 @@ import { Evenement } from "@/lib/types";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-export default function DropDownEvents({ evenements }: { evenements: Evenement[] }) {
+export default function DropDownEvents({ items, nom, page }: { items: any[], nom: string, page: string }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,7 +22,7 @@ export default function DropDownEvents({ evenements }: { evenements: Evenement[]
         onClick={() => setOpen((s) => !s)}
         className="font-semibold text-primary hover:text-secondary"
       >
-        Évènements
+        {nom}
       </button>
 
       <div
@@ -34,18 +34,18 @@ export default function DropDownEvents({ evenements }: { evenements: Evenement[]
         role="menu"
         aria-label="Sous menu évènements"
       >
-        {evenements.length === 0 ? (
-          <div className="text-sm text-gray-500 px-2 py-1">Aucun évènement</div>
+        {items.length === 0 ? (
+          <div className="text-sm text-gray-500 px-2 py-1">Aucun élément</div>
         ) : (
-          evenements.map((ev) => (
+          items.map((item) => (
             <Link
-              key={ev.id}
-              href={`/evenements/${ev.documentId}`}
+              key={item.id}
+              href={`/${page}/${item.documentId}`}
               className="block px-2 py-1 rounded hover:bg-gray-100"
               role="menuitem"
               onClick={() => setOpen(false)}
             >
-              {ev.nom + " - " + ev.annee}
+              {item.nom + " - " + item.annee}
             </Link>
           ))
         )}

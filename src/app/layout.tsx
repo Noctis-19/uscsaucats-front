@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Footer} from "@/components/Footer";
-import { getEvenements } from "@/lib/api";
-import { getFooter } from '@/lib/api';
+import { getEvenements, getCompetitions, getContact } from "@/lib/api";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +26,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const evenements = await getEvenements();
-  const footer = await getFooter();
+  const competitions = await getCompetitions();
+  const contact = await getContact();
 
   return (
     <html lang="en">
@@ -36,10 +36,10 @@ export default async function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <main className="grow">
-            <Header evenements={evenements} />
+            <Header evenements={evenements} competitions={competitions} />
             {children}
           </main>
-          <Footer footer={footer} />
+          <Footer contact={contact} />
         </div>
       </body>
     </html>

@@ -7,16 +7,18 @@ export default async function ActualitePage({ params }: { params: { docId: strin
   const actu = await getActualiteById(docId);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-4">{actu.titre}</h1>
+    <div className="max-w-7xl mx-auto px-4 py-6 text-lg text-justify">
+      <h2 className="text-4xl text-primary text-center font-bold mb-6">{actu.titre}</h2>
 
-      <BlocksRenderer content={actu.contenu} />
+      <div className="blockrenderer">
+        <BlocksRenderer content={actu.contenu} />
+      </div>
 
       {actu.image?.url && (
         <img
           src={process.env.NEXT_PUBLIC_API_URL + actu.image.url}
           alt={actu.image.alternativeText}
-          className="mt-4"
+          className="mt-6"
         />
       )}
     </div>

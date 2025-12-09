@@ -1,11 +1,13 @@
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 
-export type Footer = {
+export type Contact = {
   id: number;
   instagram: string;
   facebook: string;
   email: string;
   adresse: string;
+  contenu: BlocksContent;
+  map: string;
 }
 
 export type Actualite = {
@@ -32,6 +34,17 @@ export type Evenement = {
   nom: string;
   description: string;
   images: CustomImage[];
+}
+
+export type Competition = {
+  id: number;
+  documentId: string;
+  annee: number;
+  date: Date;
+  nom: string;
+  description: string;
+  images: CustomImage[];
+  map:string;
 }
 
 export type Partenaire = {
