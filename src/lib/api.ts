@@ -57,3 +57,11 @@ export async function getCompetitionById(docId: string) {
 export async function getPartenaires() {
   return (await fetchAPI('/api/partenaires?sort=ordre&populate=image')).data;
 }
+
+export async function getOrganigramme() {
+  return (await fetchAPI('/api/organigrammes?sort=ordre&populate=image')).data;
+}
+
+export async function getEncadrants() {
+  return (await fetchAPI('/api/encadrants?sort=ordre&populate=image')).data;
+}

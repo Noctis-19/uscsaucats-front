@@ -53,3 +53,10 @@ export type Partenaire = {
   image: CustomImage;
   description: string;
 }
+
+export type Profil = {
+  id: number;
+  poste: string;
+  nom: string;
+  image: CustomImage;
+}
