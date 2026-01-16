@@ -1,6 +1,8 @@
 export async function fetchAPI(path: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${apiUrl}${path}`);
+  const res = await fetch(`${apiUrl}${path}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error(`Erreur API: ${res.status}`);
