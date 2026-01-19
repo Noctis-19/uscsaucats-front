@@ -1,9 +1,14 @@
+import { cookies } from "next/headers";
 import Link from 'next/link';
 import Image from 'next/image';
 import DropDownEvents from "@/components/DropDownEvents";
 import { Evenement, Competition } from '@/lib/types';
 
 export default async function Header({ evenements, competitions }: { evenements: Evenement[], competitions: Competition[] }) {
+  const cookieStore = await cookies();
+  const auth = cookieStore.get("coach_auth");
+  const isCoach = auth?.value === "ok";
+
   return (
     <header className="sticky bg-white top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center h-25">
@@ -23,8 +28,17 @@ export default async function Header({ evenements, competitions }: { evenements:
           <Link href="/entrainements" className="font-semibold text-primary hover:text-secondary">
             Entraînements
           </Link>
-          <DropDownEvents items={evenements} nom="Évènements" page="evenements" />
-          <DropDownEvents items={competitions} nom="Compétitions" page="competitions" />
+          {isCoach ? (
+            <>
+              <DropDownEvents items={evenements} nom="Évènements (coachs)" page="espace-coachs/evenements" />
+              <DropDownEvents items={competitions} nom="Compétitions (coachs)" page="espace-coachs/competitions" />
+            </>
+          ) : (
+            <>
+              <DropDownEvents items={evenements} nom="Évènements" page="evenements" />
+              <DropDownEvents items={competitions} nom="Compétitions" page="competitions" />
+            </>
+          )}
           <Link href="/partenaires" className="font-semibold text-primary hover:text-secondary">
             Partenaires
           </Link>
