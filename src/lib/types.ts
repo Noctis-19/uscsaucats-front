@@ -63,10 +63,6 @@ export type Profil = {
 
 export type Message = {
   id: number;
-  documentId: string;
-  titre: string;
-  description: string;
-  contenu: BlocksContent;
-  image: CustomImage;
-  date: Date;
+  nom: string;
+  message: string;
 };

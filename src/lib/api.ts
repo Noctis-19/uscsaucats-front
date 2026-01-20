@@ -45,7 +45,7 @@ export async function getEvenements() {
 }
 
 export async function getEvenementById(docId: string) {
-  return (await fetchAPI(`/api/evenements/${docId}?populate=images`)).data;
+  return (await fetchAPI(`/api/evenements/${docId}?populate[images]=true&populate[messages_evenement]=true`)).data;
 }
 
 export async function getCompetitions() {

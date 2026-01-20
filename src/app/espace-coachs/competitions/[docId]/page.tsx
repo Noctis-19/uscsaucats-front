@@ -2,6 +2,8 @@ import { BlocksRenderer} from '@strapi/blocks-react-renderer';
 import CarouselComponent from "@/components/Carousel";
 import { getCompetitionById } from '@/lib/api';
 import MapComponent from '@/components/Map';
+import MessageComponent from '@/components/Message';
+import { type Message } from '@/lib/types';
 
 export default async function CompetitionPage({ params }: { params: { docId: string } }) {
   const { docId } = await params;
@@ -28,13 +30,13 @@ export default async function CompetitionPage({ params }: { params: { docId: str
       )}
 
       {competition?.messages_competition && (
-        <div className="mt-8 grid grid-cols gap-6">
-          {competition?.messages_competition.map((message: any) => (
-            <div className="border border-primary rounded-4xl overflow-hidden shadow flex flex-cols items-center">
-              <div className="p-2 font-semibold text-white bg-primary">{message.nom}</div>
-              <div className="p-2">{message.message}</div>
-            </div>
-          ))}
+        <div>
+          <hr className="mt-8 text-primary border"></hr>
+          <div className="mt-8 grid grid-cols gap-2">
+            {competition?.messages_competition.map((message: Message) => (
+              <MessageComponent key={message.id} message={message} />
+            ))}
+          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,8 @@
 import { BlocksRenderer} from '@strapi/blocks-react-renderer';
 import CarouselComponent from "@/components/Carousel";
 import { getEvenementById } from '@/lib/api';
+import MessageComponent from '@/components/Message';
+import { type Message } from '@/lib/types';
 
 export default async function EvenementPage({ params }: { params: { docId: string } }) {
   const { docId } = await params;
@@ -18,7 +20,20 @@ export default async function EvenementPage({ params }: { params: { docId: strin
         <div className="mx-auto max-w-3/5 mt-8 border overflow-hidden rounded-2xl">
           <CarouselComponent images={evenement.images} />
         </div>
-      )}      
+      )}
+
+      
+      
+      {evenement?.messages_evenement && (
+        <div>
+          <hr className="mt-8 text-primary border"></hr>
+          <div className="mt-8 grid grid-cols gap-2">
+            {evenement?.messages_evenement.map((message: Message) => (
+              <MessageComponent key={message.id} message={message} />
+            ))}
+          </div>
+        </div>
+      )} 
     </div>
   );
 }
