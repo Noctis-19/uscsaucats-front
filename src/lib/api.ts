@@ -53,7 +53,7 @@ export async function getCompetitions() {
 }
 
 export async function getCompetitionById(docId: string) {
-  return (await fetchAPI(`/api/competitions/${docId}?populate=images`)).data;
+  return (await fetchAPI(`/api/competitions/${docId}?populate[images]=true&populate[messages_competition]=true`)).data;
 }
 
 export async function getPartenaires() {

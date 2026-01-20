@@ -25,7 +25,18 @@ export default async function CompetitionPage({ params }: { params: { docId: str
         <div className="mx-auto max-w-3/5 mt-8 border overflow-hidden rounded-2xl">
           <CarouselComponent images={competition.images} />
         </div>
-      )}      
+      )}
+
+      {competition?.messages_competition && (
+        <div className="mt-8 grid grid-cols gap-6">
+          {competition?.messages_competition.map((message: any) => (
+            <div className="border border-primary rounded-4xl overflow-hidden shadow flex flex-cols items-center">
+              <div className="p-2 font-semibold text-white bg-primary">{message.nom}</div>
+              <div className="p-2">{message.message}</div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
