@@ -4,6 +4,7 @@ import { getCompetitionById } from '@/lib/api';
 import MapComponent from '@/components/Map';
 import MessageComponent from '@/components/Message';
 import { type Message } from '@/lib/types';
+import NewMessageEvents from '@/components/NewMessageEvents';
 
 export default async function CompetitionPage({ params }: { params: { docId: string } }) {
   const { docId } = await params;
@@ -39,6 +40,8 @@ export default async function CompetitionPage({ params }: { params: { docId: str
           </div>
         </div>
       )}
+
+      <NewMessageEvents type={"competition"} parentId={docId} />
     </div>
   );
 }

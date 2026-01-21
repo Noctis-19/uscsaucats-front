@@ -3,6 +3,7 @@ import CarouselComponent from "@/components/Carousel";
 import { getEvenementById } from '@/lib/api';
 import MessageComponent from '@/components/Message';
 import { type Message } from '@/lib/types';
+import NewMessageEvents from '@/components/NewMessageEvents';
 
 export default async function EvenementPage({ params }: { params: { docId: string } }) {
   const { docId } = await params;
@@ -21,8 +22,6 @@ export default async function EvenementPage({ params }: { params: { docId: strin
           <CarouselComponent images={evenement.images} />
         </div>
       )}
-
-      
       
       {evenement?.messages_evenement && (
         <div>
@@ -33,7 +32,9 @@ export default async function EvenementPage({ params }: { params: { docId: strin
             ))}
           </div>
         </div>
-      )} 
+      )}
+
+      <NewMessageEvents type={"evenement"} parentId={docId} />
     </div>
   );
 }

@@ -1,7 +1,12 @@
 export async function fetchAPI(path: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const token = process.env.STRAPI_API_TOKEN;
+
   const res = await fetch(`${apiUrl}${path}`, {
     cache: "no-store",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (!res.ok) {

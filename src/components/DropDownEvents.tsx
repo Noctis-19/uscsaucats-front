@@ -1,6 +1,5 @@
 "use client";
 
-import { Evenement } from "@/lib/types";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 

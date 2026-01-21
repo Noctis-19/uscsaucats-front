@@ -16,6 +16,7 @@ export default function ConnexionCoach() {
     const res = await fetch("/api/connexion-coachs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      cache: "no-store",
       body: JSON.stringify({ identifiant, motDePasse }),
     });
 
