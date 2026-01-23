@@ -31,6 +31,7 @@ export default function NewMessageEvents({ type, parentId }: { type: string, par
       setErreur("Accès refusé");
       return;
     }
+    setNewMessage("");
 
     router.refresh();
   }
@@ -45,16 +46,19 @@ export default function NewMessageEvents({ type, parentId }: { type: string, par
             value={nom}
             onChange={(e) => setNom(e.target.value)}
             required
-            className="p-2 w-2/12 font-semibold text-white bg-primary flex items-center"
+            className="p-2 w-4/12 font-semibold text-white bg-primary flex items-center"
           />
 
-          <input
-            type="text"
-            placeholder="Messsage"
+          <textarea
+            placeholder="Message"
             value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            required
-            className="p-2 w-full shadow hover:shadow-lg hover:border-secondary transition overflow-hidden"
+            onChange={(e) => {
+              setNewMessage(e.target.value);
+              e.target.style.height = "auto";
+              e.target.style.height = e.target.scrollHeight + "px";
+            }}
+            rows={1}
+            className="p-2 w-full resize-none overflow-hidden shadow"
           />
         </div>
         <button

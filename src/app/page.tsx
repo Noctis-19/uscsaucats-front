@@ -13,7 +13,7 @@ export default async function Home() {
     <div className="max-w-7xl mx-auto px-4 text-justify cursor-default">
       <section className="w-full flex flex-col md:flex-row items-center justify-between mt-4 mb-8">
         <div className="md:w-3/5 w-full flex  flex-col">
-          <h1 className="text-7xl font-bold text-primary text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-primary text-center">
             {accueil.titre}
           </h1>
           <p className="w-4/5 mt-4 self-center text-lg text-center font-semibold">
@@ -23,14 +23,14 @@ export default async function Home() {
             href={lienInscription.lien}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 px-6 py-3 w-1/5 self-center bg-primary text-white text-center font-semibold rounded-full shadow hover:bg-secondary transition"
+            className="mt-6 mb-6 px-auto py-3 w-1/5 self-center bg-primary text-white text-center font-semibold rounded-full shadow hover:bg-secondary transition"
           >
             Adhérer
           </a>
         </div>
 
         {/* Carrousel */}
-        <div className="w-full flex flex-col md:flex-row md:w-2/5 h-130 ml-8 md:mt-0 border overflow-hidden rounded-2xl rounded-bl-[5rem]">
+        <div className="mr-8 w-full flex flex-row md:w-2/5 h-130 ml-8 md:mt-0 border overflow-hidden rounded-2xl rounded-bl-[5rem]">
           <CarouselComponent images={accueil.carrousel} />
         </div>
       </section>

@@ -16,14 +16,14 @@ export default async function ClubPage() {
       <section className="mb-8">
         {infosClub.map((info: any) => (
           <div key={info.id} className="flex flex-row items-center justify-between mb-6">
-            <div className="w-2/3 pr-4">
+            <div className="md:w-2/3 pr-4">
               <h3 className="text-3xl text-primary font-bold mb-2">{info.titre}</h3>
 
               <div className="blockrenderer">
                 <BlocksRenderer content={info.description} />
               </div>
             </div>
-            <div className="w-1/3 rounded-lg pl-4">
+            <div className="hidden md:block w-1/3 rounded-lg pl-4">
               {info.image?.url && (
                 <img
                   src={process.env.NEXT_PUBLIC_API_URL + info.image.url}

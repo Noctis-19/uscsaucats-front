@@ -3,23 +3,24 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-export default function DropDownEvents({ items, nom, page }: { items: any[], nom: string, page: string }) {
+export default function DropDownEvents({ items, nom, page, onNavigate }: { items: any[], nom: string, page: string, onNavigate?: () => void }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div
       ref={wrapperRef}
-      className="relative text-primary"
+      className="border-b-2 md:border-0 relative text-primary"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      onClick={() => setOpen(!open)}
     >
       <button
         type="button"
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((s) => !s)}
-        className="font-semibold text-primary hover:text-secondary"
+        className="py-6 w-full text-left md:py-0 font-semibold text-primary hover:text-secondary"
       >
         {nom}
       </button>
@@ -40,9 +41,12 @@ export default function DropDownEvents({ items, nom, page }: { items: any[], nom
             <Link
               key={item.id}
               href={`/${page}/${item.documentId}`}
-              className="block px-2 py-1 rounded hover:bg-gray-100"
+              className="block px-2 py-3 md:py-1 rounded hover:bg-gray-100"
               role="menuitem"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false); 
+                onNavigate?.();
+              }}
             >
               {item.nom + " - " + item.annee}
             </Link>
