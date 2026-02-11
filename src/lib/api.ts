@@ -3,7 +3,6 @@ export async function fetchAPI(path: string) {
   const token = process.env.STRAPI_API_TOKEN;
 
   const res = await fetch(`${apiUrl}${path}`, {
-    cache: "no-store",
     headers: {
       Authorization: `Bearer ${token}`,
     },
