@@ -32,6 +32,12 @@ export async function Footer({ contact }: { contact: Contact }) {
             <h5 className="font-bold mb-2">Adresse</h5>
             <p> {contact.adresse} </p>
           </div>
+          <div className="my-2 md:my-0 mx-auto text-center">
+            <h5 className="font-bold mb-2">Pages légales</h5>
+            <Link href="/mentions-legales">
+              <p> Mentions légales </p>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
