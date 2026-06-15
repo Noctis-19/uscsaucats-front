@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Footer} from "@/components/Footer";
+import DisableRightClick from "@/components/DisableRightClick";
 import { getEvenements, getCompetitions, getContact } from "@/lib/api";
 import { cookies } from "next/headers";
 
@@ -41,6 +42,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
+        <DisableRightClick />
         <div className="min-h-screen flex flex-col">
           <main className="grow">
             <Header evenements={evenements} competitions={competitions} isCoach={isCoach} />
