@@ -41,6 +41,10 @@ export async function getInfosClub() {
   return (await fetchAPI(`/api/infos-club?populate=image&sort=ordre`)).data;
 }
 
+export async function getSaison() {
+  return (await fetchAPI('/api/saison')).data;
+}
+
 export async function getLignesEntrainements() {
   return (await fetchAPI('/api/entrainements-lignes?sort=ordre')).data;
 }
