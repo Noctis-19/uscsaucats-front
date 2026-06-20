@@ -25,7 +25,7 @@ export default async function TableauEntrainements({ tableau }: { tableau: any }
 
   return (
     <div className="overflow-x-auto pt-2">
-      <table className="min-w-full text-center">
+      <table className="border border-primary min-w-full text-center text-xs md:text-xl border-separate border-spacing-0">
         <thead className="bg-primary">
           <tr>
             {header.map((content: any, i: any) => (
@@ -37,7 +37,7 @@ export default async function TableauEntrainements({ tableau }: { tableau: any }
           {data.map((ligne: any, i: number) => (
             <tr key={i} className="hover:bg-green-50">
               {Object.values(ligne).map((content: any, i: number) => (
-                <td key={i} className="border border-primary px-4 py-2">{content}</td>
+                <td key={i} className={`border border-primary px-4 py-2 ${i === 0 ? "sticky left-0 bg-white z-10" : ""}`}>{content}</td>
               ))}
             </tr>
           ))}
