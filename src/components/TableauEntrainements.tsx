@@ -29,7 +29,7 @@ export default async function TableauEntrainements({ tableau }: { tableau: any }
         <thead className="bg-primary">
           <tr>
             {header.map((content: any, i: any) => (
-              <th key={i} className="border border-primary text-white px-4 py-2">{content}</th>
+              <th key={i} className="border border-primary text-white px-2 py-2">{content}</th>
             ))}
           </tr>
         </thead>
@@ -37,7 +37,7 @@ export default async function TableauEntrainements({ tableau }: { tableau: any }
           {data.map((ligne: any, i: number) => (
             <tr key={i} className="hover:bg-green-50">
               {Object.values(ligne).map((content: any, i: number) => (
-                <td key={i} className={`border border-primary px-4 py-2 ${i === 0 ? "sticky left-0 bg-white z-10" : ""}`}>{content}</td>
+                <td key={i} className={`border border-primary px-2 py-2 ${i === 0 ? "sticky left-0 bg-white z-10" : ""}`}>{content}</td>
               ))}
             </tr>
           ))}
